@@ -27,8 +27,7 @@ int32_t main() {
  
     int t = 1;
     cin >> t;
-    int x = 100000;
-    int y = 0;
+
     while (t--) {
         solve();
 
