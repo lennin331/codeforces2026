@@ -8,7 +8,6 @@ int main(){
     std::cin>>n;
     std::vector<int> v(n, 0);
     for(auto&x: v) std::cin>>x;
-    if(n==1) std::cout<<v[0]<<"\n";
     long long res = std::gcd(v[0], v[n-1]);
     std::cout<<res<<"\n";
   }
