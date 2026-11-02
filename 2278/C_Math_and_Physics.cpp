@@ -1,3 +1,4 @@
+//wrong answer - couldn't complete
 #include<bits/stdc++.h>
 int main(){
     int tt{}; std::cin>>tt;
@@ -5,27 +6,28 @@ int main(){
         int n{}; std::cin>>n;
         std::vector<int> v(n);
         for(auto &x:v) std::cin>>x;
-        int i = 1, mass{};
-        auto sum = accumulate(v.begin(), v.end(),0);
-
-        // while(i<n){
-        //     v[i] += v[i-1]-1;
-        //     std::cout<<v[i]<<"\n";
-        //     i++;
-        // }
+        int i = 0, mass{};
+        //auto sum = accumulate(v.begin(), v.end(),0);
+        long long sum{};
+        bool morethanequal2 = false;
+        while(i<n){
+            sum += v[i];
+            if(v[i]>=2) morethanequal2 = true;
+            i++;
+        }
         if(sum==n){
-            std::cout<<-1<<"\n";
-            
+            std::cout<<-1<<std::endl;
+            continue;   
         } else {
-        std::cout<<(sum)<<"\n";
+        if(morethanequal2){
+            std::cout<<(sum-1)<<std::endl;
+            continue;
+        }
+        if(v[0]>=2 || v[n-1]>=2){
+            std::cout<<sum-n+1<<std::endl;
+            continue;
+        }
         }
     }
     return 0;
 }
-/*
-approach : -1 to the left and other to the right 
-to avoid sorting - use the index of max and distance from max
-1 2 3 4 
-2 4 4 
-3 7 
-*/
