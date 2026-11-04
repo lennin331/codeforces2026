@@ -7,7 +7,6 @@ int main(){
         std::vector<int> v(n);
         for(auto &x:v) std::cin>>x;
         int i = 0, mass{};
-        //auto sum = accumulate(v.begin(), v.end(),0);
         long long sum{};
         bool morethanequal2 = false;
         while(i<n){
