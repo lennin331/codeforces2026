@@ -9,24 +9,21 @@ void solve() {
     cin >> s;
 
     int res = 0;
+    int l = 0, r = n - 1;
 
-    for (char c = 'z'; c > 'a'; c--) {
-        bool found = false;
-
-        for (int i = 0; i < n / 2; i++) {
-            if (s[i] != s[n - i - 1] &&
-                max(s[i], s[n - i - 1]) == c) {
-                found = true;
-                break;
-            }
+    while (l < r) {
+        if (s[l] == s[r]) {
+            l++;
+            r--;
         }
+        else {
+            char c = max(s[l], s[r]);
 
-        if (found) {
             for (char& x : s) {
                 if (x == c) x--;
             }
+
             res++;
-            c++; 
         }
     }
 
@@ -41,4 +38,6 @@ int main() {
     cin >> t;
 
     while (t--) solve();
+
+    return 0;
 }
